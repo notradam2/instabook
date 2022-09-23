@@ -15,12 +15,6 @@ class Contact extends Model
     use SoftDeletes;
 
     /**
-     * Acceptable menu type constant variables
-     */
-    public const ACCEPTABLE_MENU_TYPE_ALL = 1;
-    public const ACCEPTABLE_MENU_TYPE_SELECTED = 2;
-
-    /**
      * The table associated with the model.
      *
      * @var string

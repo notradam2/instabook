@@ -22,6 +22,7 @@ class CreateContactsTable extends Migration
             $table->string('phone');
             $table->text('photo');
             $table->date('birthdate');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')
