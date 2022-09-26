@@ -1,52 +1,61 @@
-@extends('contacts.layout')
+@extends('layouts.app')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Laravel 8 CRUD Example from scratch - ItSolutionStuff.com</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('contacts.create') }}"> Create New Contact</a>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">Contacts</div>
+
+                    <div class="card-body">
+                        <div class="text-left mb-3">
+                            <a class="btn btn-primary" href="{{ route('contacts.create') }}">Create New Contact</a>
+                        </div>
+
+
+                        @if ($message = Session::get('success'))
+                            <div class="alert alert-success">
+                                <p>{{ $message }}</p>
+                            </div>
+                        @endif
+
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Avatar</th>
+                                <th>Action</th>
+                            </tr>
+                            @foreach ($contacts as $contact)
+                                <tr>
+                                    <td>{{ $contact->first_name }}</td>
+                                    <td>{{ $contact->last_name }}</td>
+                                    <td>{{ $contact->email }}</td>
+                                    <td>{{ HTML::image($contact->photo, "$contact->first_name avatar", array('class' => 'avatar')) }}</td>
+                                    <td>
+                                        <form action="{{ route('contacts.destroy',$contact->id) }}" method="POST">
+
+                                            <a class="btn btn-primary" href="{{ route('contacts.show',$contact->id) }}">Show</a>
+
+                                            <a class="btn btn-primary" href="{{ route('contacts.edit',$contact->id) }}">Edit</a>
+                                            <a class="btn btn-primary" href="{{ route('contacts.edit',$contact->id) }}">Email</a>
+
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
+
+                        {!! $contacts->links() !!}
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-
-    <table class="table table-bordered">
-        <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Details</th>
-            <th width="280px">Action</th>
-        </tr>
-        @foreach ($contacts as $contact)
-            <tr>
-                <td>{{ ++$i }}</td>
-                <td>{{ $contact->first_name }}</td>
-                <td>{{ $contact->last_name }}</td>
-                <td>
-                    <form action="{{ route('contacts.destroy',$contact->id) }}" method="POST">
-
-                        <a class="btn btn-info" href="{{ route('contacts.show',$contact->id) }}">Show</a>
-
-                        <a class="btn btn-primary" href="{{ route('contacts.edit',$contact->id) }}">Edit</a>
-
-                        @csrf
-                        @method('DELETE')
-
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
-            </tr>
-        @endforeach
-    </table>
-
-    {!! $contacts->links() !!}
-
 @endsection

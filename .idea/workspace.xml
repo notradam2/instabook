@@ -1,23 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dbdb578b-9ade-42bc-b5b9-638d70ed4a2e" name="Changes" comment="Add user seeder.">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/instapic.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/phing.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/contacts/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/contacts/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/contacts/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/contacts/show.blade.php" afterDir="false" />
+    <list default="true" id="dbdb578b-9ade-42bc-b5b9-638d70ed4a2e" name="Changes" comment="ams update.">
+      <change afterPath="$PROJECT_DIR$/public/css/custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/custom.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/contacts/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/.styleci.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Console/Kernel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Exceptions/Handler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Controllers/Auth/ConfirmPasswordController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Controllers/Controller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Kernel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Middleware/Authenticate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Middleware/CheckForMaintenanceMode.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Middleware/EncryptCookies.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Middleware/TrimStrings.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Middleware/TrustProxies.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Providers/AppServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Providers/AuthServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Providers/BroadcastServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Providers/EventServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Providers/RouteServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/artisan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/bootstrap/app.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/bootstrap/cache/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/config/app.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/config/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/config/broadcasting.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/config/cache.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/config/database.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/config/filesystems.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/config/hashing.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/config/logging.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/config/mail.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/config/queue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/config/services.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/config/session.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/config/view.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/database/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/database/factories/UserFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/database/seeds/DatabaseSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/phpunit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/public/.htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/public/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/public/web.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/resources/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/resources/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/resources/lang/en/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/resources/lang/en/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/resources/lang/en/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/resources/lang/en/validation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/resources/sass/app.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/resources/views/welcome.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/routes/api.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/routes/channels.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/routes/console.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/routes/web.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/server.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/storage/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/storage/app/public/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/storage/framework/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/storage/framework/cache/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/storage/framework/cache/data/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/storage/framework/sessions/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/storage/framework/testing/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/storage/framework/views/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/storage/logs/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/tests/CreatesApplication.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/tests/Feature/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/tests/TestCase.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/tests/Unit/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/webpack.mix.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2022_09_20_011048_create_contacts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_09_20_011048_create_contacts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/contacts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contacts/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/contacts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contacts/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/contacts/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contacts/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +135,7 @@
     <setting file="file://$PROJECT_DIR$/app/Models/Contact.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/database/factories/ContactFactory.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/database/migrations/2022_09_20_011048_create_contacts_table.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -206,7 +302,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/notradam/FST/local-dev-docker/apps/instapic/resources/views/contacts",
+    "last_opened_file_path": "/home/notradam/FST/local-dev-docker/apps/instapic/resources/sass",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
@@ -219,6 +315,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/sass" />
       <recent name="$PROJECT_DIR$/resources/views/contacts" />
     </key>
   </component>
@@ -240,7 +337,9 @@
       <workItem from="1663603899096" duration="10797000" />
       <workItem from="1663760679014" duration="666000" />
       <workItem from="1663815711467" duration="435000" />
-      <workItem from="1663885825894" duration="4304000" />
+      <workItem from="1663885825894" duration="4336000" />
+      <workItem from="1664006333388" duration="3022000" />
+      <workItem from="1664009409534" duration="19651000" />
     </task>
     <task id="LOCAL-00001" summary="Laravel installation.">
       <created>1663641043438</created>
@@ -256,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663652449112</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add user seeder.">
+      <created>1663895366896</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1663895366896</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,6 +371,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Laravel installation." />
     <MESSAGE value="Add user seeder." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add user seeder." />
+    <MESSAGE value="Account management system update." />
+    <MESSAGE value="ams update." />
+    <option name="LAST_COMMIT_MESSAGE" value="ams update." />
   </component>
 </project>

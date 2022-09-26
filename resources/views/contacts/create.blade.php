@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Edit Contact</div>
+                    <div class="card-header">Create New Contact</div>
 
                     <div class="card-body col-md-6">
 
@@ -19,9 +19,8 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('contacts.update',$contact->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('contacts.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            @method('PUT')
 
                             <div class="form-group">
                                 <label for="firstNameInput">First Name</label>
@@ -31,17 +30,17 @@
 
                             <div class="form-group">
                                 <label for="firstNameInput">First Name</label>
-                                <input type="text" value="{{ $contact->first_name }}" name="first_name" class="form-control" id="firstNameInput" aria-describedby="emailHelp" placeholder="Enter Your Fist Name">
+                                <input type="text" name="first_name" class="form-control" id="firstNameInput" aria-describedby="emailHelp" placeholder="Enter Your Fist Name">
                             </div>
 
                             <div class="form-group">
                                 <label for="lastNameInput">Last Name</label>
-                                <input type="text" value="{{ $contact->last_name }}" name="last_name" class="form-control" id="lastNameInput"  placeholder="Enter Your Last Name">
+                                <input type="text" name="last_name" class="form-control" id="lastNameInput"  placeholder="Enter Your Last Name">
                             </div>
 
                             <div class="form-group">
                                 <label for="emailInput">Email</label>
-                                <input type="text" value="{{ $contact->email }}" name="email" class="form-control" id="emailInput"  placeholder="Enter Your Email">
+                                <input type="text" name="email" class="form-control" id="emailInput"  placeholder="Enter Your Email">
                             </div>
 
                             <div class="form-group">

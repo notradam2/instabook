@@ -3,6 +3,7 @@
 <head>
     <title>Contacts</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+    {{ HTML::style('css/custom.css') }}
 </head>
 <body>
 

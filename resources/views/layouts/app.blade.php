@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{ HTML::style('css/custom.css') }}
 </head>
 <body>
     <div id="app">

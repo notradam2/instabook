@@ -6,6 +6,7 @@ use App\Models\Contact;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class ContactController extends Controller
 {
@@ -41,11 +42,22 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:512',
         ]);
 
-        Contact::create($request->all());
+        $contact = new Contact();
+        $contact->fill($request->all());
+
+        // upload and store photo url data
+        if($request->hasFile('photo')){
+            $path = Storage::disk('s3')->put('uploads', $request->photo);
+            $path = Storage::disk('s3')->url($path);
+            $contact->photo = $path;
+        }
+
+        $contact->save();
 
         return redirect()->route('contacts.index')
             ->with('success','Contact created successfully.');
@@ -83,11 +95,20 @@ class ContactController extends Controller
     public function update(Request $request, Contact $contact)
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
         ]);
 
-        $contact->update($request->all());
+        $contact->fill($request->all());
+
+        // upload and store photo url data
+        if($request->hasFile('photo')){
+            $path = Storage::disk('s3')->put('uploads', $request->photo);
+            $path = Storage::disk('s3')->url($path);
+            $contact->photo = $path;
+        }
+
+        $contact->save();
 
         return redirect()->route('contacts.index')
             ->with('success','Contact updated successfully');
