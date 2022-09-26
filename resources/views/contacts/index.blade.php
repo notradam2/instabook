@@ -32,7 +32,11 @@
                                     <td>{{ $contact->first_name }}</td>
                                     <td>{{ $contact->last_name }}</td>
                                     <td>{{ $contact->email }}</td>
-                                    <td>{{ HTML::image($contact->photo, "$contact->first_name avatar", array('class' => 'avatar')) }}</td>
+                                    <td>
+                                        <div class="text-center">
+                                            {{ HTML::image($contact->photo, "$contact->first_name avatar", array('class' => 'avatar')) }}
+                                        </div>
+                                    </td>
                                     <td>
                                         <form action="{{ route('contacts.destroy',$contact->id) }}" method="POST">
 
