@@ -12,6 +12,7 @@
 */
 
 
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('contacts', ContactController::class);
+
+Route::group(['prefix'=>'mails','as'=>'mails.'], function(){
+    Route::get('/create/{contact_id}', ['as' => 'create', 'uses' => 'MailController@createMail']);
+
+    Route::post('/send/{contact_id}', ['as' => 'send', 'uses' => 'MailController@sendMail']);
+});

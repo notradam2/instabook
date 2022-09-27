@@ -43,7 +43,7 @@
                                             <a class="btn btn-primary" href="{{ route('contacts.show',$contact->id) }}">Show</a>
 
                                             <a class="btn btn-primary" href="{{ route('contacts.edit',$contact->id) }}">Edit</a>
-                                            <a class="btn btn-primary" href="{{ route('contacts.edit',$contact->id) }}">Email</a>
+                                            <a class="btn btn-primary" href="{{ route('mails.create',$contact->id) }}">Email</a>
 
                                             @csrf
                                             @method('DELETE')

@@ -71,6 +71,7 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
+        dd($contact->email);
         return view('contacts.show',compact('contact'));
     }
 

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendEmail;
+use App\Mail\ContactSendMail;
 use App\Models\Contact;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class MailController extends Controller
@@ -17,25 +20,37 @@ class MailController extends Controller
      * @param Contact $contact
      * @return RedirectResponse
      */
-    public function sendEmail(Request $request, Contact $contact)
+    public function sendMail(Request $request, $contactId)
     {
         $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'subject' => 'required',
+            'body' => 'required',
         ]);
 
-        $contact->fill($request->all());
+        $contact = Contact::findOrFail($contactId);
 
-        // upload and store photo url data
-        if($request->hasFile('photo')){
-            $path = Storage::disk('s3')->put('uploads', $request->photo);
-            $path = Storage::disk('s3')->url($path);
-            $contact->photo = $path;
-        }
+        $details = [
+            'email' => $contact->email,
+            'subject' => $request->subject,
+            'body' => $request->body
+        ];
 
-        $contact->save();
+        //Mail::to($contact->email)->send(new ContactSendMail($details));
+        SendEmail::dispatch($details);
 
         return redirect()->route('contacts.index')
-            ->with('success','Contact updated successfully');
+            ->with('success','Email sent successfully.');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param Contact $contact
+     * @return Response
+     */
+    public function createMail(Request $request)
+    {
+        $contact = Contact::findOrFail($request->contact_id);
+        return view('mails.create',compact('contact'));
     }
 }
