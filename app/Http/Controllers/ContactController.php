@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateContactFormRequest;
+use App\Http\Requests\GetContactFormRequest;
+use App\Http\Requests\UpdateContactFormRequest;
 use App\Models\Contact;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -17,7 +21,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::latest()->paginate(5);
+        $contacts = Contact::where('user_id', auth()->id())
+            ->latest()->paginate(5);
 
         return view('contacts.index',compact('contacts'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -39,14 +44,8 @@ class ContactController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateContactFormRequest $request)
     {
-        $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:512',
-        ]);
-
         $contact = new Contact();
         $contact->fill($request->all());
 
@@ -57,6 +56,7 @@ class ContactController extends Controller
             $contact->photo = $path;
         }
 
+        $contact->user_id = auth()->id();
         $contact->save();
 
         return redirect()->route('contacts.index')
@@ -69,9 +69,9 @@ class ContactController extends Controller
      * @param Contact $contact
      * @return Response
      */
-    public function show(Contact $contact)
+    public function show(GetContactFormRequest $request)
     {
-        dd($contact->email);
+        $contact = $request->getValidatedContact();
         return view('contacts.show',compact('contact'));
     }
 
@@ -81,24 +81,21 @@ class ContactController extends Controller
      * @param Contact $contact
      * @return Response
      */
-    public function edit(Contact $contact)
+    public function edit(GetContactFormRequest $request)
     {
+        $contact = $request->getValidatedContact();
         return view('contacts.edit',compact('contact'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param Contact $contact
+     * @param UpdateContactFormRequest $request
      * @return RedirectResponse
      */
-    public function update(Request $request, Contact $contact)
+    public function update(UpdateContactFormRequest $request)
     {
-        $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-        ]);
+        $contact = $request->getValidatedContact();
 
         $contact->fill($request->all());
 
@@ -108,7 +105,6 @@ class ContactController extends Controller
             $path = Storage::disk('s3')->url($path);
             $contact->photo = $path;
         }
-
         $contact->save();
 
         return redirect()->route('contacts.index')
@@ -118,12 +114,13 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Contact $contact
+     * @param GetContactFormRequest $request
      * @return RedirectResponse
+     * @throws Exception
      */
-    public function destroy(Contact $contact)
+    public function destroy(GetContactFormRequest $request)
     {
-        $contact->delete();
+        $request->getValidatedContact()->delete();
 
         return redirect()->route('contacts.index')
             ->with('success','Contact deleted successfully');

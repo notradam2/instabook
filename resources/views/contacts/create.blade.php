@@ -24,12 +24,6 @@
 
                             <div class="form-group">
                                 <label for="firstNameInput">First Name</label>
-                                <input type="text" name="user_id" value="1" class="form-control" id="firstNameInput" aria-describedby="emailHelp" placeholder="Enter Your Fist Name">
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="firstNameInput">First Name</label>
                                 <input type="text" name="first_name" class="form-control" id="firstNameInput" aria-describedby="emailHelp" placeholder="Enter Your Fist Name">
                             </div>
 

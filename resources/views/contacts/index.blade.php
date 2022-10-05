@@ -33,9 +33,11 @@
                                     <td>{{ $contact->last_name }}</td>
                                     <td>{{ $contact->email }}</td>
                                     <td>
+                                        @if($contact->photo)
                                         <div class="text-center">
                                             {{ HTML::image($contact->photo, "$contact->first_name avatar", array('class' => 'avatar')) }}
                                         </div>
+                                        @endif
                                     </td>
                                     <td>
                                         <form action="{{ route('contacts.destroy',$contact->id) }}" method="POST">

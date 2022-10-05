@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dbdb578b-9ade-42bc-b5b9-638d70ed4a2e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Jobs/SendEmail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mail/ContactSendMail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/horizon.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/contact_send_mail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/mails/create.blade.php" afterDir="false" />
+    <list default="true" id="dbdb578b-9ade-42bc-b5b9-638d70ed4a2e" name="Changes" comment="ams update.">
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/CreateContactFormRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/GetContactFormRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateContactFormRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MailController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/HorizonServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/HorizonServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/contacts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contacts/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/contacts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contacts/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/contacts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contacts/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -32,9 +31,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/Http/Requests/GetContactFormRequest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/Jobs/SendEmail.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/Mail/ContactSendMail.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/Models/Contact.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/Providers/HorizonServiceProvider.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/database/factories/ContactFactory.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/database/migrations/2022_09_20_011048_create_contacts_table.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -199,36 +200,83 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/notradam/FST/local-dev-docker/apps/instapic/resources/views/emails&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/notradam/FST/local-dev-docker/apps/instapic/app/Http/Requests",
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Requests" />
       <recent name="$PROJECT_DIR$/resources/views/emails" />
       <recent name="$PROJECT_DIR$/resources/views/mails" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
       <recent name="$PROJECT_DIR$/resources/sass" />
-      <recent name="$PROJECT_DIR$/resources/views/contacts" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Docker....instapic-scheduler: Compose Deployment">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="...instapic-horizon: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="instapic-horizon" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="../../docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="...instapic-redis: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="instapic-redis" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="../../docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="...instapic-scheduler: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="instapic-scheduler" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="../../docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker....instapic-scheduler: Compose Deployment" />
+        <item itemvalue="Docker....instapic-horizon: Compose Deployment" />
+        <item itemvalue="Docker....instapic-redis: Compose Deployment" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -248,7 +296,11 @@
       <workItem from="1664158558287" duration="176000" />
       <workItem from="1664159511459" duration="3857000" />
       <workItem from="1664228327507" duration="11851000" />
-      <workItem from="1664287809335" duration="3673000" />
+      <workItem from="1664287809335" duration="4320000" />
+      <workItem from="1664410263397" duration="634000" />
+      <workItem from="1664450532352" duration="2841000" />
+      <workItem from="1664675859942" duration="1367000" />
+      <workItem from="1664889285666" duration="8186000" />
     </task>
     <task id="LOCAL-00001" summary="Laravel installation.">
       <created>1663641043438</created>
@@ -285,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664171200578</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ams update.">
+      <created>1664292124165</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1664292124165</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
