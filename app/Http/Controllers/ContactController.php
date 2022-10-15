@@ -7,6 +7,7 @@ use App\Http\Requests\GetContactFormRequest;
 use App\Http\Requests\UpdateContactFormRequest;
 use App\Models\Contact;
 use Exception;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -24,7 +25,7 @@ class ContactController extends Controller
         $contacts = Contact::where('user_id', auth()->id())
             ->latest()->paginate(5);
 
-        return view('contacts.index',compact('contacts'))
+        return view('contacts.index', compact('contacts'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -50,7 +51,7 @@ class ContactController extends Controller
         $contact->fill($request->all());
 
         // upload and store photo url data
-        if($request->hasFile('photo')){
+        if ($request->hasFile('photo')) {
             $path = Storage::disk('s3')->put('uploads', $request->photo);
             $path = Storage::disk('s3')->url($path);
             $contact->photo = $path;
@@ -60,7 +61,7 @@ class ContactController extends Controller
         $contact->save();
 
         return redirect()->route('contacts.index')
-            ->with('success','Contact created successfully.');
+            ->with('success', 'Contact created successfully.');
     }
 
     /**
@@ -72,7 +73,7 @@ class ContactController extends Controller
     public function show(GetContactFormRequest $request)
     {
         $contact = $request->getValidatedContact();
-        return view('contacts.show',compact('contact'));
+        return view('contacts.show', compact('contact'));
     }
 
     /**
@@ -84,7 +85,7 @@ class ContactController extends Controller
     public function edit(GetContactFormRequest $request)
     {
         $contact = $request->getValidatedContact();
-        return view('contacts.edit',compact('contact'));
+        return view('contacts.edit', compact('contact'));
     }
 
     /**
@@ -100,7 +101,7 @@ class ContactController extends Controller
         $contact->fill($request->all());
 
         // upload and store photo url data
-        if($request->hasFile('photo')){
+        if ($request->hasFile('photo')) {
             $path = Storage::disk('s3')->put('uploads', $request->photo);
             $path = Storage::disk('s3')->url($path);
             $contact->photo = $path;
@@ -108,21 +109,19 @@ class ContactController extends Controller
         $contact->save();
 
         return redirect()->route('contacts.index')
-            ->with('success','Contact updated successfully');
+            ->with('success', 'Contact updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param GetContactFormRequest $request
-     * @return RedirectResponse
+     * @return JsonResponse
      * @throws Exception
      */
-    public function destroy(GetContactFormRequest $request)
+    public function destroy(GetContactFormRequest $request): JsonResponse
     {
-        $request->getValidatedContact()->delete();
-
-        return redirect()->route('contacts.index')
-            ->with('success','Contact deleted successfully');
+        $isDeleted = $request->getValidatedContact()->delete();
+        return response()->json(['status' => $isDeleted], 200);
     }
 }

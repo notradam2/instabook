@@ -2,9 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Contact;
-use Illuminate\Foundation\Http\FormRequest;
-
 class CreateContactFormRequest extends GetContactFormRequest
 {
     /**
@@ -30,6 +27,4 @@ class CreateContactFormRequest extends GetContactFormRequest
             'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:512',
         ];
     }
-
-
 }

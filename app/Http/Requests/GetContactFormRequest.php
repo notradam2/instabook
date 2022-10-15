@@ -42,5 +42,4 @@ class GetContactFormRequest extends FormRequest
     {
         return $this->contactModel;
     }
-
 }

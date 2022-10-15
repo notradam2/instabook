@@ -9,7 +9,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
 
 class MailController extends Controller
 {
@@ -39,7 +38,7 @@ class MailController extends Controller
         SendEmail::dispatch($details);
 
         return redirect()->route('contacts.index')
-            ->with('success','Email sent successfully.');
+            ->with('success', 'Email sent successfully.');
     }
 
     /**
@@ -51,6 +50,6 @@ class MailController extends Controller
     public function createMail(Request $request)
     {
         $contact = Contact::findOrFail($request->contact_id);
-        return view('mails.create',compact('contact'));
+        return view('mails.create', compact('contact'));
     }
 }

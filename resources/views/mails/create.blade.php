@@ -24,7 +24,7 @@
 
                             <div class="form-group">
                                 <label for="sendToInput">Send To</label>
-                                <input type="text" name="email" class="form-control" id="sendToInput" value="{{ $contact->email }}">
+                                <p class="text-muted">{{ $contact->first_name.' '.$contact->last_name }} ({{ $contact->email }})</p>
                             </div>
 
                             <div class="form-group">

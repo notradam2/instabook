@@ -43,7 +43,7 @@
                                 <input type="file" name="photo" class="form-control-file" id="photoInputFile">
                             </div>
                             <a class="btn btn-primary" href="{{ route('contacts.index') }}">Back</a>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
 
                         </form>
 

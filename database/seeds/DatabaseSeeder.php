@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeds;
+
 use App\Models\Contact;
 use App\User;
 use Illuminate\Database\Seeder;
@@ -7,9 +9,9 @@ use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    private const TEST_USER_NAME = 'Dim';
-    private const TEST_USER_EMAIL = 'admin@test.com';
-    private const TEST_USER_PW = 'admin12345';
+    public const TEST_USER_NAME = 'Dim';
+    public const TEST_USER_EMAIL = 'admin@test.com';
+    public const TEST_USER_PW = 'admin12345';
 
     /**
      * Seed the application's database.
@@ -19,7 +21,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $user = $this->seedTestUser();
-
         $this->seedTestContacts($user);
     }
 
@@ -43,11 +44,10 @@ class DatabaseSeeder extends Seeder
      * @param User $user
      * @return void
      */
-    private function seedTestContacts(User $user):void
+    private function seedTestContacts(User $user): void
     {
         factory(Contact::class, 10)->create([
             'user_id' => $user->id
         ]);
-
     }
 }

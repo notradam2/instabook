@@ -21,7 +21,7 @@
 
                         <table class="table table-bordered">
                             <tr>
-                                <th>First Name</th>
+                                <th>First Name xx</th>
                                 <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Avatar</th>
@@ -40,18 +40,20 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <form action="{{ route('contacts.destroy',$contact->id) }}" method="POST">
+                                            <a class="btn btn-secondary text-white" href="{{ route('contacts.show',$contact->id) }}">
+                                                <i class="bi bi-info-circle"></i>
+                                            </a>
 
-                                            <a class="btn btn-primary" href="{{ route('contacts.show',$contact->id) }}">Show</a>
+                                            <a class="btn btn-secondary" href="{{ route('contacts.edit',$contact->id) }}">
+                                                <i class="bi bi-pen-fill"></i>
+                                            </a>
+                                            <a class="btn btn-secondary" href="{{ route('mails.create',$contact->id) }}">
+                                                <i class="bi bi-send"></i>
+                                            </a>
+                                            <a href="javascript:void(0)" class="showDeleteModal btn btn-secondary" data-id="{{ $contact->id }}">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
 
-                                            <a class="btn btn-primary" href="{{ route('contacts.edit',$contact->id) }}">Edit</a>
-                                            <a class="btn btn-primary" href="{{ route('mails.create',$contact->id) }}">Email</a>
-
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -64,4 +66,7 @@
             </div>
         </div>
     </div>
+    @include('common.delete_confirmation', [
+        'title' => __('Contact Deletion'),
+    ])
 @endsection

@@ -11,17 +11,48 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{ HTML::style('css/custom.css') }}
+    <script>
+        (function () {
+            $(document).on('click', '.showDeleteModal', function() {
+                let id = $(this).data('id');
+                let row = $(this).closest('tr')
+                $("#delete-confirm").modal('show');
+                $(document).on('click', '#proceed-delete', function() {
+                    deleteContact(id, row);
+                });
+            });
+        })();
+
+        function deleteContact(contactId, row)
+        {
+            $.ajax({
+                url: "{{url('contacts')}}/" + contactId,
+                data: { "_token": "{{ csrf_token() }}" },
+                method: "DELETE",
+                success: function (res) {
+                    if (res.status) {
+                        row.remove();
+                    }
+                    $("#delete-confirm").modal('hide');
+                }
+            });
+        }
+    </script>
+
 </head>
 <body>
     <div id="app">
+        working!
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">

@@ -2,9 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Contact;
-use Illuminate\Foundation\Http\FormRequest;
-
 class UpdateContactFormRequest extends GetContactFormRequest
 {
     /**
@@ -17,8 +14,8 @@ class UpdateContactFormRequest extends GetContactFormRequest
         return [
             'first_name' => 'required',
             'last_name' => 'required',
+            'email' => 'required|email',
             'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:512',
         ];
     }
-
 }
