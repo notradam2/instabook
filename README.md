@@ -50,7 +50,7 @@ Copy the `.env.example` file to `.env`
 cp .env.example .env
 ```
 
-:note: You need to add your own AWS & MailTrap credentials value.
+:warning: You need to add your own AWS & MailTrap credentials value.
 
 Setup Local File Permissions by
 ```shell
