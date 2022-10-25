@@ -9,11 +9,14 @@
                     <div class="card-body">
                         <div class="row">
 
+                            @if($contact->photo)
                             <div class="col-md-4">
                                 <div class="form-group">
                                     {{ HTML::image($contact->photo, "$contact->first_name avatar", array('class' => 'img-thumbnail')) }}
                                 </div>
                             </div>
+                            @endif
+
                             <div class="col-md-8">
 
                                 <div class="form-group">
