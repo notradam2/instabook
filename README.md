@@ -1,25 +1,28 @@
-# Instabook
-This is a Laravel project that performs CRUD operations and demonstrates how the Laravel Horizon, Redis and AWS S3 works. 
+# About
+Instabook is a Laravel project that performs CRUD operations and demonstrates how Laravel Horizon, Redis and AWS S3 works.
 
-## :gear: Requirements
+## Requirements
 * Docker for Mac or Linux
-* docker-compose 
+* docker-compose
 
-## :whale:  Docker Setup
+##  Docker Setup
 Git clone this repository
 ```shell
-git clone git@github.com:folder/local-docker.git
+git clone git@github.com:notradam2/dev-docker.git
 ```
+You may use this repo to set up your docker compose.
+https://github.com/notradam2/dev-docker
+
 
 ---
-# :factory:  Backend Setup
-Follow the commands below to setup the Laravel backend
+## Installation
+Follow the commands below to set up the Laravel backend
 development environment.
 
-### Step 1: Clone Repository
-Clone the repository inside `local-docker/apps`
+### 1: Clone Repository
+Clone the repository inside `dev-docker/apps`
 ```shell
-git clone git@github.com:folder/instabook.git
+git clone git@github.com:notradam2/instabook.git
 ```
 Go to `instabook` directory.
 ```shell
@@ -47,26 +50,25 @@ Copy the `.env.example` file to `.env`
 cp .env.example .env
 ```
 
-:warning: For security reasons, we do not expose .env credentials. You can put your own credentials value.
+:warning: You need to add your own AWS & MailTrap credentials value.
 
 Setup Local File Permissions by
 ```shell
 chmod -R 777 storage
 ```
 
-Then install Laravel
+Then install Laravel key
 ```shell
 composer install
 php artisan key:generate
 ```
 
 ### 3. Setup the MySQL Database
-Run the command below to setup the database. This will automatically
-create the `instabook_db` database.
+Run the command below to set up the database.
 ```shell
+composer dump-autoload
 php artisan migrate:fresh --seed
 ```
-If prompted, just input `yes`.
 
 ### 4. Setup Storage
 Create a symlink to link the `public/storage` by running the command:
@@ -82,14 +84,14 @@ in the file.
 ```
 
 ### 6. Clear Cache
-We need to clear all caching for a fresh system. Go to the `api` terminal and run the 
+We need to clear all caching for a fresh system. Go to the `api` terminal and run the
 following commands.
 ```shell
 php artisan optimize:clear
 ```
 
 
-## 7. Build project UI
+### 7. Build project UI
 
 To build the admin UI, run the following command:
 ```shell
@@ -98,29 +100,28 @@ npm i && npm run dev
 
 ---
 
-# :checkered_flag:  Everything Working?
-To make sure that everything is working. We need to run some couple of tests. Let's run PHPUnit.
+### 8. Unit Test
+Run PHPUnit test to double-check everything is working.
 ```shell
 ./vendor/bin/phpunit
 ```
 
-## :ocean:  Laravel Horizon
+### 9. Open Browser
+Access https://instabook.local.host in your browser and enter the test account credentials.
+```
+username: admin@test.com
+password: admin12345
+```
+![Instabook Dashboard](https://i.ibb.co/pZT3MrG/Screenshot-from-2022-10-25-11-21-19.png)
+
+
+## Laravel Horizon
 We are processing our queue system through Redis queues and manage them
 with Laravel Horizon.
 
-You can go to your docker container `instabook-worker` and check if the PHP workers are running:
-```shell
-docker exec -it worker bash
+Open http://instabook.localhost/horizon to see the Laravel Horizon user interface.
+![Laravel Horizon](https://i.ibb.co/tHvq8C4/Screenshot-from-2022-10-25-11-14-25.png)
 ```
-Now that you are in, please run the command to see the running processes:
-```shell
-ps -ef
+username: admin
+password: admin
 ```
-You should be able to see the horizon is running
-show image here..
-
-Now go to your browser and open https://instabook.local.host/horizon.
-You should be able to see the Laravel Horizon user interface.
-show image here..
-
-Make sure the status is "Active".

@@ -3,7 +3,7 @@
 namespace Tests\Feature\Controller;
 
 use App\User;
-use Database\Seeds\DatabaseSeeder;
+use DatabaseSeeder;
 use Tests\TestCase;
 
 class LoginControllerTest extends TestCase

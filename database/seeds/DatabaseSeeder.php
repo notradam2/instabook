@@ -1,7 +1,5 @@
 <?php
 
-namespace Database\Seeds;
-
 use App\Models\Contact;
 use App\User;
 use Illuminate\Database\Seeder;
